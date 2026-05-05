@@ -55,7 +55,7 @@ function ProductPage() {
           <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
         </div>
         <div className="md:py-8">
-          <p className="eyebrow">{categoryMeta[product.category].label}</p>
+          <p className="eyebrow">{categoryMeta[product.category as keyof typeof categoryMeta].label}</p>
           <h1 className="mt-4 font-serif text-4xl md:text-5xl text-foreground leading-tight">{product.name}</h1>
           <p className="mt-6 text-2xl text-foreground">{formatPKR(product.price)}</p>
           <p className="mt-8 leading-relaxed text-muted-foreground">{product.description}</p>
