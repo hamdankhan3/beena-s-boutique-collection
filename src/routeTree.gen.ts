@@ -11,12 +11,22 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as LayoutIndexRouteImport } from './routes/_layout/index'
+import { Route as LayoutTermsRouteImport } from './routes/_layout/terms'
+import { Route as LayoutSignupRouteImport } from './routes/_layout/signup'
 import { Route as LayoutShopRouteImport } from './routes/_layout/shop'
+import { Route as LayoutShippingRouteImport } from './routes/_layout/shipping'
+import { Route as LayoutReturnsRouteImport } from './routes/_layout/returns'
+import { Route as LayoutPrivacyRouteImport } from './routes/_layout/privacy'
+import { Route as LayoutLoginRouteImport } from './routes/_layout/login'
+import { Route as LayoutForgotPasswordRouteImport } from './routes/_layout/forgot-password'
+import { Route as LayoutFaqRouteImport } from './routes/_layout/faq'
 import { Route as LayoutContactRouteImport } from './routes/_layout/contact'
 import { Route as LayoutCheckoutRouteImport } from './routes/_layout/checkout'
 import { Route as LayoutCartRouteImport } from './routes/_layout/cart'
+import { Route as LayoutAccountRouteImport } from './routes/_layout/account'
 import { Route as LayoutAboutRouteImport } from './routes/_layout/about'
 import { Route as LayoutProductIdRouteImport } from './routes/_layout/product.$id'
+import { Route as LayoutAccountOrdersRouteImport } from './routes/_layout/account.orders'
 
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
@@ -27,9 +37,49 @@ const LayoutIndexRoute = LayoutIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutTermsRoute = LayoutTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutSignupRoute = LayoutSignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => LayoutRoute,
+} as any)
 const LayoutShopRoute = LayoutShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutShippingRoute = LayoutShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutReturnsRoute = LayoutReturnsRouteImport.update({
+  id: '/returns',
+  path: '/returns',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutPrivacyRoute = LayoutPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutLoginRoute = LayoutLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutForgotPasswordRoute = LayoutForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutFaqRoute = LayoutFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutContactRoute = LayoutContactRouteImport.update({
@@ -47,6 +97,11 @@ const LayoutCartRoute = LayoutCartRouteImport.update({
   path: '/cart',
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutAccountRoute = LayoutAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => LayoutRoute,
+} as any)
 const LayoutAboutRoute = LayoutAboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -57,34 +112,69 @@ const LayoutProductIdRoute = LayoutProductIdRouteImport.update({
   path: '/product/$id',
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutAccountOrdersRoute = LayoutAccountOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => LayoutAccountRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LayoutIndexRoute
   '/about': typeof LayoutAboutRoute
+  '/account': typeof LayoutAccountRouteWithChildren
   '/cart': typeof LayoutCartRoute
   '/checkout': typeof LayoutCheckoutRoute
   '/contact': typeof LayoutContactRoute
+  '/faq': typeof LayoutFaqRoute
+  '/forgot-password': typeof LayoutForgotPasswordRoute
+  '/login': typeof LayoutLoginRoute
+  '/privacy': typeof LayoutPrivacyRoute
+  '/returns': typeof LayoutReturnsRoute
+  '/shipping': typeof LayoutShippingRoute
   '/shop': typeof LayoutShopRoute
+  '/signup': typeof LayoutSignupRoute
+  '/terms': typeof LayoutTermsRoute
+  '/account/orders': typeof LayoutAccountOrdersRoute
   '/product/$id': typeof LayoutProductIdRoute
 }
 export interface FileRoutesByTo {
   '/about': typeof LayoutAboutRoute
+  '/account': typeof LayoutAccountRouteWithChildren
   '/cart': typeof LayoutCartRoute
   '/checkout': typeof LayoutCheckoutRoute
   '/contact': typeof LayoutContactRoute
+  '/faq': typeof LayoutFaqRoute
+  '/forgot-password': typeof LayoutForgotPasswordRoute
+  '/login': typeof LayoutLoginRoute
+  '/privacy': typeof LayoutPrivacyRoute
+  '/returns': typeof LayoutReturnsRoute
+  '/shipping': typeof LayoutShippingRoute
   '/shop': typeof LayoutShopRoute
+  '/signup': typeof LayoutSignupRoute
+  '/terms': typeof LayoutTermsRoute
   '/': typeof LayoutIndexRoute
+  '/account/orders': typeof LayoutAccountOrdersRoute
   '/product/$id': typeof LayoutProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_layout': typeof LayoutRouteWithChildren
   '/_layout/about': typeof LayoutAboutRoute
+  '/_layout/account': typeof LayoutAccountRouteWithChildren
   '/_layout/cart': typeof LayoutCartRoute
   '/_layout/checkout': typeof LayoutCheckoutRoute
   '/_layout/contact': typeof LayoutContactRoute
+  '/_layout/faq': typeof LayoutFaqRoute
+  '/_layout/forgot-password': typeof LayoutForgotPasswordRoute
+  '/_layout/login': typeof LayoutLoginRoute
+  '/_layout/privacy': typeof LayoutPrivacyRoute
+  '/_layout/returns': typeof LayoutReturnsRoute
+  '/_layout/shipping': typeof LayoutShippingRoute
   '/_layout/shop': typeof LayoutShopRoute
+  '/_layout/signup': typeof LayoutSignupRoute
+  '/_layout/terms': typeof LayoutTermsRoute
   '/_layout/': typeof LayoutIndexRoute
+  '/_layout/account/orders': typeof LayoutAccountOrdersRoute
   '/_layout/product/$id': typeof LayoutProductIdRoute
 }
 export interface FileRouteTypes {
@@ -92,29 +182,59 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/account'
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/faq'
+    | '/forgot-password'
+    | '/login'
+    | '/privacy'
+    | '/returns'
+    | '/shipping'
     | '/shop'
+    | '/signup'
+    | '/terms'
+    | '/account/orders'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/about'
+    | '/account'
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/faq'
+    | '/forgot-password'
+    | '/login'
+    | '/privacy'
+    | '/returns'
+    | '/shipping'
     | '/shop'
+    | '/signup'
+    | '/terms'
     | '/'
+    | '/account/orders'
     | '/product/$id'
   id:
     | '__root__'
     | '/_layout'
     | '/_layout/about'
+    | '/_layout/account'
     | '/_layout/cart'
     | '/_layout/checkout'
     | '/_layout/contact'
+    | '/_layout/faq'
+    | '/_layout/forgot-password'
+    | '/_layout/login'
+    | '/_layout/privacy'
+    | '/_layout/returns'
+    | '/_layout/shipping'
     | '/_layout/shop'
+    | '/_layout/signup'
+    | '/_layout/terms'
     | '/_layout/'
+    | '/_layout/account/orders'
     | '/_layout/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -138,11 +258,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/terms': {
+      id: '/_layout/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof LayoutTermsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/signup': {
+      id: '/_layout/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof LayoutSignupRouteImport
+      parentRoute: typeof LayoutRoute
+    }
     '/_layout/shop': {
       id: '/_layout/shop'
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof LayoutShopRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/shipping': {
+      id: '/_layout/shipping'
+      path: '/shipping'
+      fullPath: '/shipping'
+      preLoaderRoute: typeof LayoutShippingRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/returns': {
+      id: '/_layout/returns'
+      path: '/returns'
+      fullPath: '/returns'
+      preLoaderRoute: typeof LayoutReturnsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/privacy': {
+      id: '/_layout/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof LayoutPrivacyRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/login': {
+      id: '/_layout/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LayoutLoginRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/forgot-password': {
+      id: '/_layout/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof LayoutForgotPasswordRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/faq': {
+      id: '/_layout/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof LayoutFaqRouteImport
       parentRoute: typeof LayoutRoute
     }
     '/_layout/contact': {
@@ -166,6 +342,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutCartRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/account': {
+      id: '/_layout/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof LayoutAccountRouteImport
+      parentRoute: typeof LayoutRoute
+    }
     '/_layout/about': {
       id: '/_layout/about'
       path: '/about'
@@ -180,25 +363,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutProductIdRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/account/orders': {
+      id: '/_layout/account/orders'
+      path: '/orders'
+      fullPath: '/account/orders'
+      preLoaderRoute: typeof LayoutAccountOrdersRouteImport
+      parentRoute: typeof LayoutAccountRoute
+    }
   }
 }
 
+interface LayoutAccountRouteChildren {
+  LayoutAccountOrdersRoute: typeof LayoutAccountOrdersRoute
+}
+
+const LayoutAccountRouteChildren: LayoutAccountRouteChildren = {
+  LayoutAccountOrdersRoute: LayoutAccountOrdersRoute,
+}
+
+const LayoutAccountRouteWithChildren = LayoutAccountRoute._addFileChildren(
+  LayoutAccountRouteChildren,
+)
+
 interface LayoutRouteChildren {
   LayoutAboutRoute: typeof LayoutAboutRoute
+  LayoutAccountRoute: typeof LayoutAccountRouteWithChildren
   LayoutCartRoute: typeof LayoutCartRoute
   LayoutCheckoutRoute: typeof LayoutCheckoutRoute
   LayoutContactRoute: typeof LayoutContactRoute
+  LayoutFaqRoute: typeof LayoutFaqRoute
+  LayoutForgotPasswordRoute: typeof LayoutForgotPasswordRoute
+  LayoutLoginRoute: typeof LayoutLoginRoute
+  LayoutPrivacyRoute: typeof LayoutPrivacyRoute
+  LayoutReturnsRoute: typeof LayoutReturnsRoute
+  LayoutShippingRoute: typeof LayoutShippingRoute
   LayoutShopRoute: typeof LayoutShopRoute
+  LayoutSignupRoute: typeof LayoutSignupRoute
+  LayoutTermsRoute: typeof LayoutTermsRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
   LayoutProductIdRoute: typeof LayoutProductIdRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutAboutRoute: LayoutAboutRoute,
+  LayoutAccountRoute: LayoutAccountRouteWithChildren,
   LayoutCartRoute: LayoutCartRoute,
   LayoutCheckoutRoute: LayoutCheckoutRoute,
   LayoutContactRoute: LayoutContactRoute,
+  LayoutFaqRoute: LayoutFaqRoute,
+  LayoutForgotPasswordRoute: LayoutForgotPasswordRoute,
+  LayoutLoginRoute: LayoutLoginRoute,
+  LayoutPrivacyRoute: LayoutPrivacyRoute,
+  LayoutReturnsRoute: LayoutReturnsRoute,
+  LayoutShippingRoute: LayoutShippingRoute,
   LayoutShopRoute: LayoutShopRoute,
+  LayoutSignupRoute: LayoutSignupRoute,
+  LayoutTermsRoute: LayoutTermsRoute,
   LayoutIndexRoute: LayoutIndexRoute,
   LayoutProductIdRoute: LayoutProductIdRoute,
 }
@@ -212,3 +432,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
