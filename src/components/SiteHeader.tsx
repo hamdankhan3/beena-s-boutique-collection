@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X, User } from "lucide-react";
 import { useCart } from "@/store/cart";
 import { useState } from "react";
 
@@ -42,14 +42,19 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link to="/cart" className="relative inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-          <ShoppingBag className="h-5 w-5" />
-          {count > 0 && (
-            <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-medium text-primary-foreground">
-              {count}
-            </span>
-          )}
-        </Link>
+        <div className="flex items-center gap-5">
+          <Link to="/account" className="text-foreground hover:text-primary transition-colors" aria-label="Account">
+            <User className="h-5 w-5" />
+          </Link>
+          <Link to="/cart" className="relative inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+            <ShoppingBag className="h-5 w-5" />
+            {count > 0 && (
+              <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-medium text-primary-foreground">
+                {count}
+              </span>
+            )}
+          </Link>
+        </div>
       </div>
 
       {open && (
