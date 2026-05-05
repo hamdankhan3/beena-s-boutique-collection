@@ -33,7 +33,8 @@ export const Route = createFileRoute("/_layout/shop")({
 const allCats = Object.keys(categoryMeta) as Category[];
 
 function ShopPage() {
-  const { category } = Route.useSearch();
+  const search = Route.useSearch();
+  const category = search.category as Category | undefined;
   const filtered = category ? products.filter((p) => p.category === category) : products;
 
   return (
